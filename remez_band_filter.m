@@ -20,6 +20,7 @@ Amplitudes = [0, 0, 1, 1, 1, 0];
 Weights = [5, 10, 5]; % Adjust the weight for the stopband to increase attenuation
 
 % Filter design using Remez algorithm
+<<<<<<< HEAD
 [b, err] = firpm(N, Frequencies, Amplitudes, Weights);
 
 filtered_signal = filter(b,1,z);
@@ -30,5 +31,17 @@ filtered_signal = filter(b,1,z);
 % xlabel('Frequency (Hz)');
 % ylabel('Magnitude (dB)');
 % grid on;
+=======
+b_bandpass = remez(N, Frequencies, Amplitudes, Weights);
+
+filtered_signal = filter(b_bandpass,1,z);
+%figure;
+% Plot the frequency response
+%freqz(b_bandpass, 1, 1024, Fs);
+title('Frequency Response of Remez FIR Bandpass Filter');
+xlabel('Frequency (Hz)');
+ylabel('Magnitude (dB)');
+grid on;
+>>>>>>> d715817ca27f1c64c3f3b8f964518b4ea5a7df24
 
 end

@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 function [filtered_signal, b, err] = remez_highpass1(z,fs)
+=======
+function [filtered_signal] = remez_highpass1(z,fs)
+>>>>>>> d715817ca27f1c64c3f3b8f964518b4ea5a7df24
 
 % Filter specifications
 Fs = fs;             % Sampling frequency
@@ -18,6 +22,7 @@ Amplitudes = [0, 1, 1, 1];
 Weights = [1, 5];
 
 % Filter design using Remez algorithm
+<<<<<<< HEAD
 [b, err] = remez(N, Frequencies, Amplitudes, Weights);
 
 filtered_signal = filter(b, 1, z);
@@ -28,5 +33,17 @@ filtered_signal = filter(b, 1, z);
 % xlabel('Frequency (Hz)');
 % ylabel('Magnitude (dB)');
 % grid on;
+=======
+b_highpass = remez(N, Frequencies, Amplitudes, Weights);
+
+filtered_signal = filter(b_highpass, 1, z);
+
+% Plot the frequency response
+%freqz(b_highpass, 1, 1024, Fs);
+title('Frequency Response of Remez FIR Highpass Filter');
+xlabel('Frequency (Hz)');
+ylabel('Magnitude (dB)');
+grid on;
+>>>>>>> d715817ca27f1c64c3f3b8f964518b4ea5a7df24
 
 end
