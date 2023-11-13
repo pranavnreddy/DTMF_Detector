@@ -17,26 +17,8 @@ Amplitudes = [1, 1, 0, 0];
 Weights = [1, 5];
 
 % Filter design using Remez algorithm
-<<<<<<< HEAD
 [b, err] = firpm(N, Frequencies, Amplitudes, Weights);
-=======
-b = remez(N, Frequencies, Amplitudes, Weights);
->>>>>>> d715817ca27f1c64c3f3b8f964518b4ea5a7df24
-
 filtered_signal = filter(b,1,z);
 
-% Plot the frequency response
-%freqz(b, 1, 1024, Fs);
-<<<<<<< HEAD
-% title('Frequency Response of Remez FIR Lowpass Filter');
-% xlabel('Frequency (Hz)');
-% ylabel('Magnitude (dB)');
-% grid on;
-=======
-title('Frequency Response of Remez FIR Lowpass Filter');
-xlabel('Frequency (Hz)');
-ylabel('Magnitude (dB)');
-grid on;
->>>>>>> d715817ca27f1c64c3f3b8f964518b4ea5a7df24
 
 end
