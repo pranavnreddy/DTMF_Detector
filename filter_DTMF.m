@@ -5,10 +5,7 @@ function [filtered_signal_array_low, filtered_signal_array_high] = filter_DTMF(f
 % duration = 0.1;  % Duration of each key press (100 ms)
 % gap = 0.1;  % 100 ms delay between keys
 
-[t_total, z] = generate_wave(keys_pressed, fs, duration, gap);
-
-t_total_half_sample = t_total(1:2:end);
-t_total_quarter_sample = t_total_half_sample(1:2:end);
+[~, z] = generate_wave(keys_pressed, fs, duration, gap);
 
 filtered_signal_p1 = low_pass1(z,fs);
 downsampled_signal_p1 = downsample(filtered_signal_p1, 2);
@@ -25,6 +22,7 @@ downsampled_signal_high = downsample(filtered_signal_high, 2);
 filter_order = 5;
 passband_ripple = 0.2;
 stopband_attenuation = 50;
+
 
 % Assign values to the array
 filtered_signal_array_low_1 = cheby2_HL_filter(downsampled_signal_low, fs/4, filter_order, 677, 717, passband_ripple, stopband_attenuation);

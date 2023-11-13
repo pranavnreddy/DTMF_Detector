@@ -1,4 +1,4 @@
-function [filtered_signal] = high_pass1(z,fs)
+function [filtered_signal, b, a] = high_pass1(z,fs)
 passband_ripple = 0.2;             % Pass band ripple in dB
 stopband_attenuation = 50;         % Stop band attenuation in dB
 passband_freq = [1200 1999];          % Pass band frequency range in Hz
@@ -23,7 +23,7 @@ filtered_signal = filter(b, a, z);
 % Use freqz for frequency response plot
 %subplot(2, 1, 2);
 %freqz(b, a, 1024, sampling_freq);
-hold on;
+% hold on;
 
 
 end

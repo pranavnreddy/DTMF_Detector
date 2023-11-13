@@ -1,5 +1,5 @@
 
-function [filtered_signal] = low_pass1(z,fs)
+function [filtered_signal, b, a] = low_pass1(z,fs)
 % Filter design specifications
 passband_ripple = 0.2;             % Pass band ripple in dB
 stopband_attenuation = 50;         % Stop band attenuation in dB
