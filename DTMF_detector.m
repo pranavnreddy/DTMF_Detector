@@ -5,7 +5,8 @@ function DTMF_detector()
 
 
     keys_pressed = {"0","1","2","3","4","5","6","7","8","9","A","B","C","D","*","#"};
-    [filtered_signal_array_low, filtered_signal_array_high] = remez_filter_DTMF(fs, duration, gap, keys_pressed);
+    [filtered_signal_array_low, filtered_signal_array_high] = filter_DTMF(fs, duration, gap, keys_pressed);
+    % [filtered_signal_array_low, filtered_signal_array_high] = remez_filter_DTMF(fs, duration, gap, keys_pressed);
     
     output = "";
     for i = 1:length(keys_pressed)
